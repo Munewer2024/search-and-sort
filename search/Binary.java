@@ -28,7 +28,7 @@ public class Binary
     // Remember that a binary search requires a sorted array!
     // You can use one of your sorting methods here.
     
-
+    
     ////////////////////////////////////////////////////////////
     // Do not change anything below this line!!
     ////////////////////////////////////////////////////////////

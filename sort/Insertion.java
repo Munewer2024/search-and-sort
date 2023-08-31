@@ -16,14 +16,21 @@ public class Insertion
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
     int[] newArray = new int[arr.length];
+    int j = 0;
     for (int i = 0; i < arr.length - 1; i++) {
-        if (newArray[0] > arr[i]) {
-            newArray[1] = newArray[0];
-            newArray[0] = arr[i];
-        }
         if (arr[i] > arr[i + 1]) {
-            newArray[0] = arr[i + 1];
+            newArray[j] = arr[i + 1];
+            j++;
+            newArray[j] = arr[i];
         }
+        for (int k = 0; k < newArray.length; k++) {
+        if (newArray[j] > arr[i]) {
+            int oldValue = newArray[j];
+            newArray[j] = arr[i];
+            j++;
+            newArray[j] = oldValue;
+        }
+    }
     }
     return newArray;
   }
@@ -33,6 +40,7 @@ public class Insertion
       31,66,71,32,19,79,58,61,82,89,63,7,4,50,10,48,24,75,19,22,
       73,54,51,25,33,20,52,79,97,70,54,63,49};    
     
+    System.out.println(Arrays.toString(sort(arr)));
     // Test the sort
     testSort(sort(arr));
   }
