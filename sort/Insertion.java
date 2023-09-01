@@ -17,20 +17,19 @@ public class Insertion
     // Your algorithm goes here!
     int[] newArray = new int[arr.length];
     int j = 0;
+    newArray[0] = arr[0];
     for (int i = 0; i < arr.length - 1; i++) {
         if (arr[i] > arr[i + 1]) {
-            newArray[j] = arr[i + 1];
-            j++;
-            newArray[j] = arr[i];
+            if (newArray[j] > arr[i + 1]) {
+                int oldVal = newArray[j];
+                j++;
+                newArray[j] = oldVal;
+                newArray[j - 1] = arr[i + 1];
+            }
         }
-        for (int k = 0; k < newArray.length; k++) {
         if (newArray[j] > arr[i]) {
-            int oldValue = newArray[j];
             newArray[j] = arr[i];
-            j++;
-            newArray[j] = oldValue;
         }
-    }
     }
     return newArray;
   }
