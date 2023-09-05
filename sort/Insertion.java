@@ -20,15 +20,12 @@ public class Insertion
     newArray[0] = arr[0];
     for (int i = 0; i < arr.length - 1; i++) {
         if (arr[i] > arr[i + 1]) {
-            if (newArray[j] > arr[i + 1]) {
-                int oldVal = newArray[j];
-                j++;
-                newArray[j] = oldVal;
-                newArray[j - 1] = arr[i + 1];
-            }
-        }
-        if (newArray[j] > arr[i]) {
+            newArray[j] = arr[i + 1];
+            j++;
             newArray[j] = arr[i];
+        } else {
+            j++;
+            newArray[j] = arr[i + 1];
         }
     }
     return newArray;
