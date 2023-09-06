@@ -16,7 +16,18 @@ public class Selection
    */
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
-
+    int j = 0;
+    while (j < arr.length) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[j] > arr[i]) {
+                int oldValue = arr[j];
+                arr[j] = arr[i];
+                arr[i] = oldValue;
+            } 
+        }
+        j++;
+    }
+    return arr;
   }
   
   public static void main(String[] args) {
@@ -24,6 +35,7 @@ public class Selection
       31,66,71,32,19,79,58,61,82,89,63,7,4,50,10,48,24,75,19,22,
       73,54,51,25,33,20,52,79,97,70,54,63,49};    
     
+    System.out.println(Arrays.toString(sort(arr)));
     // Test the sort
     testSort(sort(arr));
   }
