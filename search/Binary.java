@@ -18,6 +18,29 @@ public class Binary
     // binarySearch.  If you use it for testing, but you need to implement the algorithm
     // to get the point!
     
+    int left = 0;
+    int right = 49;
+    int mid = (49 / 2);
+    int index = 0;
+    
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] == target) {
+            index = i;
+        } 
+        if (arr[left] > arr[right]) {
+            index = -1;
+        } else if (arr[left] == arr[right]) {
+            index = arr[left];
+        }
+        if (target > arr[mid]) {
+            left = mid;
+            mid = (left + right / 2);
+        } else {
+            right = mid;
+            mid = (left + right / 2);
+        }
+    }
+    return index;
   }
   
   public static void main(String[] args) {
@@ -28,6 +51,17 @@ public class Binary
     // Remember that a binary search requires a sorted array!
     // You can use one of your sorting methods here.
     
+    int j = 0;
+    while (j < arr.length) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[j] < arr[i]) {
+                int oldValue = arr[j];
+                arr[j] = arr[i];
+                arr[i] = oldValue;
+            } 
+        }
+        j++;
+    }
     
     ////////////////////////////////////////////////////////////
     // Do not change anything below this line!!
