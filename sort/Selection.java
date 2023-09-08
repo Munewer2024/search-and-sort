@@ -19,7 +19,7 @@ public class Selection
     int j = 0;
     while (j < arr.length) {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[j] < arr[i]) {
+            if (arr[i] > arr[j]) {
                 int oldValue = arr[j];
                 arr[j] = arr[i];
                 arr[i] = oldValue;
