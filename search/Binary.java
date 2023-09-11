@@ -23,23 +23,21 @@ public class Binary
     int mid = (49 / 2);
     int index = 0;
     
-    for (int i = 0; i < arr.length; i++) {
-        if (arr[i] == target) {
-            index = i;
+    while (left <= right) {
+        if (arr[mid] == target) {
+            return mid;
         } 
-        if (arr[left] > arr[right]) {
-            index = -1;
-        } else if (arr[left] == arr[right]) {
-            index = arr[left];
-        }
-        if (target > arr[mid]) {
+        if (arr[mid] < target) {
             left = mid;
-            mid = (left + right / 2);
         } else {
             right = mid;
-            mid = (left + right / 2);
         }
     }
+    
+    if (left > right) {
+        index = -1;
+    }
+    
     return index;
   }
   
