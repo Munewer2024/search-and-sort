@@ -20,7 +20,7 @@ public class Binary
     
     int left = 0;
     int right = 49;
-    int mid = (49 / 2);
+    int mid = left + (right - left) / 2;
     int index = 0;
     
     while (left <= right) {
@@ -28,17 +28,13 @@ public class Binary
             return mid;
         } 
         if (arr[mid] < target) {
-            left = mid;
+            left = mid + 1;
         } else {
-            right = mid;
+            right = mid - 1;
         }
     }
     
-    if (left > right) {
-        index = -1;
-    }
-    
-    return index;
+    return -1;
   }
   
   public static void main(String[] args) {
